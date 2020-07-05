@@ -1,0 +1,105 @@
+# Ignore VLT files
+.vlt
+.vlt-sync.log
+.vlt-sync-config.properties
+
+# Ignore Quickstart launches in the source tree
+license.properties
+crx-quickstart
+
+# Ignore compilation results
+target/
+drivers/
+build/
+public/
+
+
+#Ignore IDE files
+.idea
+.classpath
+.metadata
+.project
+.settings
+maven-eclipse.xml
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+.history/
+
+
+#Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and Operating System artifacts
+.idea
+.classpath
+.metadata
+.project
+.settings
+maven-eclipse.xml
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Node
+content/node_modules
+node/
+node_modules/
+npm-debug.log
+.sass-cache/*
+/sass-cache
+
+
+# Velocity
+bundle/velocity.log.*
+bundle/velocity.log
+velocity.log*
+
+# Other
+lib/
+libs/
+
+#Packer.io
+packer_cache
+builds
+
+#deploy
+*.pyc
+jenkins.properties
+deploy/lib/python-packages
+
+#logs
+logs/
+*.log
+
+#junk
+devops___*
+
+#ssh keys
+.ssh/
+.ssh/*
+
+#stats files
+.stats
+.stats/*
+
+#ignore testing remote driver exec files and restuls
+swinburne-core-testing/remote-*
+swinburne-core-testing/local-*
+
+#ignore bash things
+.bash_history
+
+#prototype project
+**/content-generator/content/
+**/content-generator/output/
+**/content-generator/tmp/
+**/node/
+**/sync/
+
+#automated test screenshots
+*.diff.png
