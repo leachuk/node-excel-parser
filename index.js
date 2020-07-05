@@ -51,7 +51,7 @@ if (program.fileXlsx) {
 	var csv_wb = XLSX.utils.book_new();
 	var csv_ws = XLSX.utils.json_to_sheet(csv_result, {}); //opts to re-order columns: header:["current_ia","future_ia","title"]
 	XLSX.utils.book_append_sheet(csv_wb, csv_ws, "FutureIA");
-	XLSX.writeFile(csv_wb, 'ia-migrate-with-title2.csv');
+	XLSX.writeFile(csv_wb, 'ia-migrate-with-title.csv');
 
 } else {
 	console.log("Error: Missing xlsx spreadsheet path\n");
