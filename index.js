@@ -25,7 +25,14 @@ if (program.fileXlsx) {
 	console.log("Transforming 'IA Layout' sheet")
 	for (const row of search_result){
 		//console.log(row);
-		let title_key = "L" + row[`IA Level`]; //fragile assumption, but will do for now.
+		// Parse Lx columns. Can't use the previous key from `IA Level` as it doesn't always exist
+		let title_key = "";
+		for (let i = 1; i < 10; i++) {
+			title_key = "L" + i;
+			if (row.hasOwnProperty(title_key)) {
+				break;
+			}
+		}
 		let current_path = row[`INTERIM IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
 		let future_path = row[`END STATE IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
 		let row_json = { "current_ia": current_path, "future_ia": future_path, "title": row[title_key] };
@@ -44,7 +51,7 @@ if (program.fileXlsx) {
 	var csv_wb = XLSX.utils.book_new();
 	var csv_ws = XLSX.utils.json_to_sheet(csv_result, {}); //opts to re-order columns: header:["current_ia","future_ia","title"]
 	XLSX.utils.book_append_sheet(csv_wb, csv_ws, "FutureIA");
-	XLSX.writeFile(csv_wb, 'ia-migrate-with-title.csv');
+	XLSX.writeFile(csv_wb, 'ia-migrate-with-title2.csv');
 
 } else {
 	console.log("Error: Missing xlsx spreadsheet path\n");
