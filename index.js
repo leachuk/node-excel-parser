@@ -33,10 +33,16 @@ if (program.fileXlsx) {
 				break;
 			}
 		}
-		let current_path = row[`INTERIM IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
-		let future_path = row[`END STATE IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
-		let row_json = { "current_ia": current_path, "future_ia": future_path, "title": row[title_key] };
-		csv_result.push(row_json);
+		if (row[`INTERIM IA TRAILING SLASH FIXED`] == undefined || row[`END STATE IA TRAILING SLASH FIXED`] == undefined) {
+			console.log(row);
+			console.log("Interim IA:" + row[`INTERIM IA TRAILING SLASH FIXED`])
+			console.log("Future IA:" + row[`END STATE IA TRAILING SLASH FIXED`])
+		} else {
+			let current_path = row[`INTERIM IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
+			let future_path = row[`END STATE IA TRAILING SLASH FIXED`].replace(/\/$/, ""); //remove trailing slash
+			let row_json = { "current_ia": current_path, "future_ia": future_path, "title": row[title_key] };
+			csv_result.push(row_json);
+		}
 	}
 
 	console.log("Transforming 'T4 redirect pages' sheet")
